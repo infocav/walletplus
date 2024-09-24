@@ -1,4 +1,3 @@
-
 # WalletPlus
 
 ## Arquitetura da Solução
@@ -13,20 +12,21 @@ A solução é baseada em microsserviços, onde cada serviço é responsável po
 - `POST /api/wallet/transaction/add`: Adiciona uma nova transação.
 - `POST /api/wallet/transaction/withdraw`: Saca uma transação.
 - `POST /api/wallet/transaction/purchase`: Compra uma transação.
+- `PUT /api/wallet/transaction/purchase/{id}`: Atualiza o status de uma transação de compra.
 - `POST /api/wallet/transaction/cancel`: Cancela uma transação.
 - `POST /api/wallet/transaction/refund`: Reembolsa uma transação.
 - `GET /api/wallet/transactions`: Consulta todas as transações.
-- `GET /api/wallet/transactions/{userId}`: Consulta o extrato de transações por usuário.
+- `GET /api/wallet/transactions/{cpf}`: Consulta o extrato de transações por usuário.
 
 ### Saldo
-- `GET /api/wallet/balance/{userId}`: Consulta o saldo atual de um usuário.
+- `GET /api/wallet/balance/{cpf}`: Consulta o saldo atual de um usuário.
 
 ### Usuários
 - `POST /api/wallet/user`: Cria um novo usuário.
-- `GET /api/wallet/user/{id}`: Consulta um usuário por ID.
+- `GET /api/wallet/user/{cpf}`: Consulta um usuário por CPF.
 - `GET /api/wallet/users`: Consulta todos os usuários.
-- `PUT /api/wallet/user/{id}`: Atualiza um usuário por ID.
-- `DELETE /api/wallet/user/{id}`: Deleta um usuário por ID.
+- `PUT /api/wallet/user/{cpf}`: Atualiza um usuário por CPF.
+- `DELETE /api/wallet/user/{cpf}`: Deleta um usuário por CPF.
 
 ## Configuração do Banco de Dados
 
@@ -105,7 +105,6 @@ ou
 ```sh
 mvn test -Denv=test
 ```
-
 
 ## Contribuição
 
