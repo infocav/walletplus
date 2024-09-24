@@ -1,0 +1,198 @@
+{
+	"info": {
+		"_postman_id": "8f3ff1d6-1688-4cc6-9e49-42d9b8332a80",
+		"name": "WalletPlus Test Scenario - Add Transactions",
+		"description": "Collection to test adding transactions for users and verifying final balances",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8265539"
+	},
+	"item": [
+		{
+			"name": "Add Transaction for User A",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"userId\": \"{{userAId}}\",\n  \"amount\": 100,\n  \"channel\": \"ATM\",\n  \"referenceId\": \"{{referenceIdA}}\",\n  \"sourceUserId\": null\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/wallet/transaction/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"wallet",
+						"transaction",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Transaction for User B",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"userId\": \"{{userBId}}\",\n  \"amount\": 50,\n  \"channel\": \"ATM\",\n  \"referenceId\": \"{{referenceIdB}}\",\n  \"sourceUserId\": null\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/wallet/transaction/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"wallet",
+						"transaction",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Transaction for User A from User B",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"userId\": \"{{userAId}}\",\n  \"amount\": 40,\n  \"channel\": \"ATM\",\n  \"referenceId\": \"{{referenceIdC}}\",\n  \"sourceUserId\": \"{{userBId}}\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/wallet/transaction/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"wallet",
+						"transaction",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Final Balance for User A",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json();",
+							"pm.test(\"Balance for User A is 140\", function () {",
+							"    pm.expect(response.amount).to.eql(140);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/wallet/balance/{{userAId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"wallet",
+						"balance",
+						"{{userAId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Final Balance for User B",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json();",
+							"pm.test(\"Balance for User B is 10\", function () {",
+							"    pm.expect(response.amount).to.eql(10);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/wallet/balance/{{userBId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"wallet",
+						"balance",
+						"{{userBId}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "userAId",
+			"value": "user-a-uuid"
+		},
+		{
+			"key": "userBId",
+			"value": "user-b-uuid"
+		},
+		{
+			"key": "referenceIdA",
+			"value": "reference-id-a"
+		},
+		{
+			"key": "referenceIdB",
+			"value": "reference-id-b"
+		},
+		{
+			"key": "referenceIdC",
+			"value": "reference-id-c"
+		}
+	]
+}

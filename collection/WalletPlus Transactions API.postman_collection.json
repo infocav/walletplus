@@ -1,0 +1,166 @@
+{
+	"info": {
+		"_postman_id": "8d5ed87b-b1f9-4fa9-9279-29663df2d83d",
+		"name": "WalletPlus Transactions API",
+		"description": "Collection of WalletPlus transaction endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8265539"
+	},
+	"item": [
+		{
+			"name": "Add Transaction",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"amount\": 100.0,\n  \"channel\": \"WEB\",\n  \"referenceId\": \"12345\",\n  \"userId\": \"user-uuid\",\n  \"sourceUserId\": \"source-user-uuid\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/wallet/transaction/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"wallet",
+						"transaction",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Withdraw Transaction",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"amount\": 50.0,\n  \"channel\": \"WEB\",\n  \"referenceId\": \"12346\",\n  \"userId\": \"user-uuid\",\n  \"sourceUserId\": \"source-user-uuid\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/wallet/transaction/withdraw",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"wallet",
+						"transaction",
+						"withdraw"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Purchase Transaction",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"amount\": 75.0,\n  \"channel\": \"WEB\",\n  \"referenceId\": \"12347\",\n  \"userId\": \"user-uuid\",\n  \"sourceUserId\": \"source-user-uuid\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/wallet/transaction/purchase",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"wallet",
+						"transaction",
+						"purchase"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cancel Transaction",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"channel\": \"WEB\",\n  \"cancelReferenceId\": \"12348\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/wallet/transaction/cancel",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"wallet",
+						"transaction",
+						"cancel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Refund Transaction",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"channel\": \"WEB\",\n  \"refundReferenceId\": \"12349\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/wallet/transaction/refund",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"wallet",
+						"transaction",
+						"refund"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

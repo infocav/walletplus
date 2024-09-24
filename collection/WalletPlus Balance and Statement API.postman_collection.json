@@ -1,0 +1,88 @@
+{
+	"info": {
+		"_postman_id": "bb2908a6-7e55-405f-8ff4-5e373bcd9e27",
+		"name": "WalletPlus Balance and Statement API",
+		"description": "Collection of WalletPlus balance and statement endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8265539"
+	},
+	"item": [
+		{
+			"name": "Get Balance",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/wallet/balance/{userId}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"wallet",
+						"balance",
+						"{userId}"
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "user-uuid"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Transactions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/wallet/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"wallet",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Transactions by User ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/wallet/transactions/{userId}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"wallet",
+						"transactions",
+						"{userId}"
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "user-uuid"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
